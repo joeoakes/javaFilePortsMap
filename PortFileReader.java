@@ -35,11 +35,13 @@ public class PortFileReader {
             System.out.println(entry.getKey() + " => " + entry.getValue());
         }
 
+        //Connect to Redis Database and put Map data in
+        Jedis jedis = null;
         try {
-            Jedis jedis = new Jedis("localhost");
+            jedis = new Jedis("localhost");
 
             for (Map.Entry<String, Integer> entry : portMap.entrySet()) {
-                 //Create (Set a key-value pair)
+                //Create (Set a key-value pair)
                 jedis.set(entry.getKey(), entry.getValue().toString());
             }
 
@@ -51,6 +53,10 @@ public class PortFileReader {
             jedis.close();
         } catch (JedisConnectionException e) {
             System.out.println("Could not connect to Redis: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Issue" + e.getMessage());
+        } finally {
+            jedis.close();
         }
 
     }

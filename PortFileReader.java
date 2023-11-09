@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.exceptions.JedisConnectionException;
+
 public class PortFileReader {
     public static void main(String[] args) {
         String filename = "ports.txt"; // Replace with the path to your file

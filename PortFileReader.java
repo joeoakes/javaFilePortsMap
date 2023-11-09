@@ -50,7 +50,6 @@ public class PortFileReader {
                 String value = jedis.get(entry.getKey());
                 System.out.println(value);
             }
-            jedis.close();
         } catch (JedisConnectionException e) {
             System.out.println("Could not connect to Redis: " + e.getMessage());
         } catch (Exception e) {

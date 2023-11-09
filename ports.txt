@@ -1,0 +1,6 @@
+smtp=25
+http=80
+msrpc=135
+microsoft-ds=445
+mysql=3306
+wsdapi=5357

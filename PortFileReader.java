@@ -34,5 +34,25 @@ public class PortFileReader {
         for (Map.Entry<String, Integer> entry : portMap.entrySet()) {
             System.out.println(entry.getKey() + " => " + entry.getValue());
         }
+
+        try {
+            Jedis jedis = new Jedis("localhost");
+
+            /*for (Map.Entry<String, Integer> entry : portMap.entrySet()) {
+                 //Create (Set a key-value pair)
+                jedis.set(entry.getKey(), entry.getValue().toString());
+            }
+
+            for (Map.Entry<String, Integer> entry : portMap.entrySet()) {
+                //Read (Get the value of a key)
+                String value = jedis.get(entry.getKey());
+                System.out.println(value);
+            }
+*/
+            jedis.close();
+        } catch (JedisConnectionException e) {
+            System.out.println("Could not connect to Redis: " + e.getMessage());
+        }
+
     }
 }

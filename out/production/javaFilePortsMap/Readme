@@ -1,0 +1,31 @@
+Redis can run on localhost and port 6379
+
+Windows Powershell
+wsl --install
+sudo apt update
+sudo apt install redis-server
+sudo service redis-server start
+
+Linux
+sudo apt update
+sudo apt install redis-server
+sudo systemctl start redis
+sudo systemctl enable redis
+redis-cli ping
+
+To start the Redis CLI (Command Line Interface) and connect to the Redis server
+redis-cli
+
+Set the string value of a key
+SET key value
+GET key
+DEL key
+EXISTS key
+
+Find all keys matching the given pattern
+KEYS pattern
+
+RENAME: Rename a key
+RENAME old_key new_key
+
+EXPIRE key seconds
